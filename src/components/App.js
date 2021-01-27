@@ -32,7 +32,7 @@ function App() {
       init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : 'Initializing..'
       }
 
-      <footet> &copy; {new Date().getFullYear()} Nwitter</footet>
+      {/* <footet> &copy; {new Date().getFullYear()} Nwitter</footet> */}
     </>
   );
 }

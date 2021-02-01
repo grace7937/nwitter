@@ -18,17 +18,26 @@ function App() {
       }
       setInit(true);
     });
-
   }, []);
-
-
+  const refreshUser = () => {
+    const user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args),
+    });
+  };
   return (
     <>
-      {
-      init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : 'Initializing..'
-      }
-
-      {/* <footet> &copy; {new Date().getFullYear()} Nwitter</footet> */}
+      {init ? (
+        <AppRouter
+          refreshUser={refreshUser}
+          isLoggedIn={Boolean(userObj)}
+          userObj={userObj}
+        />
+      ) : (
+        "Initializing..."
+      )}
     </>
   );
 }

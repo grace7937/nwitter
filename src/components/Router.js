@@ -8,6 +8,7 @@ import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import Navigation from './Navigation';
 import Profile from '../routes/Profile';
+import react from 'react';
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -18,23 +19,23 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
           <div
             style={{
               maxWidth: 890,
-              width: "100%",
-              margin: "0 auto",
+              width: '100%',
+              margin: '0 auto',
               marginTop: 80,
-              display: "flex",
-              justifyContent: "center",
+              display: 'flex',
+              justifyContent: 'center',
             }}
           >
-            <Route exact path="/">
+            <Route exact path='/'>
               <Home userObj={userObj} />
             </Route>
-            <Route exact path="/profile">
+            <Route exact path='/profile'>
               <Profile userObj={userObj} refreshUser={refreshUser} />
             </Route>
           </div>
         ) : (
           <>
-            <Route exact path="/">
+            <Route exact path='/'>
               <Auth />
             </Route>
           </>
